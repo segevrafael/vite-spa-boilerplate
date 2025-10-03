@@ -10,6 +10,7 @@ function initializeApp() {
     ${createAIFeaturesSection()}
     ${createTechnologySection()}
     ${createApplicationsSection()}
+    ${createFooterSection()}
   `
 }
 
@@ -303,6 +304,27 @@ function createApplicationsSection() {
   `
 }
 
+function createFooterSection() {
+  return `
+    <footer id="contact" class="footer finisher-header" style="width: 100%; height: 400px; position: relative;">
+      <div class="footer-content">
+        <h2>Get in Touch</h2>
+        <p>Ready to enhance your cognitive potential?</p>
+        <div class="button-group">
+          <a href="#" class="btn btn-primary">Contact Sales</a>
+          <a href="#" class="btn btn-secondary dark">Join Waitlist</a>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Support</a>
+        </div>
+        <p class="copyright">&copy; 2025 NeuroSync. All rights reserved.</p>
+      </div>
+    </footer>
+  `
+}
+
 function setupBrainWaveAnimation() {
   const canvas = document.getElementById('brainWaveCanvas')
   if (!canvas) return
@@ -467,9 +489,58 @@ function setupScrollEffects() {
   })
 }
 
+function initializeFinisherHeader() {
+  // Wait for the script to be loaded
+  if (typeof FinisherHeader === 'undefined') {
+    setTimeout(initializeFinisherHeader, 100)
+    return
+  }
+
+  new FinisherHeader({
+    "count": 90,
+    "size": {
+      "min": 1,
+      "max": 329,
+      "pulse": 0.7
+    },
+    "speed": {
+      "x": {
+        "min": 0,
+        "max": 0.4
+      },
+      "y": {
+        "min": 0,
+        "max": 0.1
+      }
+    },
+    "colors": {
+      "background": "#2f2f2f",
+      "particles": [
+        "#ffffff",
+        "#87ddfe",
+        "#acaaff",
+        "#1bffc2",
+        "#f88aff"
+      ]
+    },
+    "blending": "screen",
+    "opacity": {
+      "center": 0,
+      "edge": 0.4
+    },
+    "skew": -0.7,
+    "shapes": [
+      "c",
+      "s",
+      "t"
+    ]
+  })
+}
+
 // Initialize app
 initializeApp()
 setupBrainWaveAnimation()
 createParticles()
 setupParallax()
 setupScrollEffects()
+initializeFinisherHeader()
