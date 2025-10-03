@@ -6,14 +6,37 @@
 }
 
 :root {
-  /* Apple-style color palette */
+  /* Enhanced color palette with more vibrancy */
   --primary-blue: #0071e3;
   --primary-blue-hover: #0077ed;
+  --accent-purple: #8a2be2;
+  --accent-cyan: #00d4ff;
+  --accent-pink: #f88aff;
+  --accent-teal: #1bffc2;
   --text-primary: #1d1d1f;
   --text-secondary: #6e6e73;
   --background: #ffffff;
+  --background-light: #f5f5f7;
+  --background-lighter: #fafafa;
+  --background-dark: #1d1d1f;
+  --background-darker: #000000;
   --nav-background: rgba(255, 255, 255, 0.72);
   --nav-background-scrolled: rgba(255, 255, 255, 0.92);
+
+  /* Shadows and effects */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+  --shadow-glow-blue: 0 8px 32px rgba(0, 113, 227, 0.3);
+  --shadow-glow-purple: 0 8px 32px rgba(138, 43, 226, 0.3);
+
+  /* Spacing scale */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 64px;
+  --space-xl: 96px;
+  --space-2xl: 128px;
 
   /* Typography */
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -109,11 +132,11 @@ nav .nav-links a:hover::before {
 /* Hero Section */
 .hero {
   margin-top: 44px;
-  padding: 60px 0 80px;
+  padding: 80px 0 100px;
   text-align: center;
   background: linear-gradient(135deg, #000000 0%, #0a1628 50%, #000814 100%);
   color: #fff;
-  min-height: 600px;
+  min-height: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,10 +153,33 @@ nav .nav-links a:hover::before {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 50%, rgba(0, 113, 227, 0.15), transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.1), transparent 40%);
+    radial-gradient(circle at 20% 50%, rgba(0, 113, 227, 0.2), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.15), transparent 40%);
   z-index: 0;
   animation: bgShift 15s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 100px,
+      rgba(0, 212, 255, 0.02) 100px,
+      rgba(0, 212, 255, 0.02) 101px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 100px,
+      rgba(0, 212, 255, 0.02) 100px,
+      rgba(0, 212, 255, 0.02) 101px
+    );
+  opacity: 0.3;
+  z-index: 0;
 }
 
 @keyframes bgShift {
@@ -201,17 +247,18 @@ nav .nav-links a:hover::before {
 }
 
 .hero h1 {
-  font-size: 56px;
-  font-weight: 600;
-  line-height: 1.07;
-  letter-spacing: -0.005em;
-  margin-bottom: 6px;
-  background: linear-gradient(90deg, #fff 0%, #0071e3 50%, #fff 100%);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #fff 0%, #00d4ff 50%, #fff 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 3s linear infinite;
+  filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.4));
 }
 
 @keyframes shimmer {
@@ -255,11 +302,11 @@ nav .nav-links a:hover::before {
 }
 
 .hero .tagline {
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 1.14;
-  letter-spacing: 0.007em;
-  color: #a1a1a6;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #d1d1d6;
   margin-bottom: 20px;
 }
 
@@ -286,6 +333,7 @@ nav .nav-links a:hover::before {
 
 .product-section.light {
   background: linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .product-section.light::before {
@@ -296,14 +344,29 @@ nav .nav-links a:hover::before {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 10% 20%, rgba(0, 113, 227, 0.03), transparent 50%),
-    radial-gradient(circle at 90% 80%, rgba(138, 43, 226, 0.02), transparent 50%);
+    radial-gradient(circle at 10% 20%, rgba(0, 113, 227, 0.06), transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(138, 43, 226, 0.04), transparent 50%);
   pointer-events: none;
+}
+
+.product-section.light::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(0, 113, 227, 0.3) 50%,
+    transparent 100%);
+  opacity: 0.5;
 }
 
 .product-section.dark {
   background: linear-gradient(180deg, #000 0%, #0a0a0a 50%, #000 100%);
   color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .product-section.dark::before {
@@ -314,36 +377,65 @@ nav .nav-links a:hover::before {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 30% 40%, rgba(0, 113, 227, 0.08), transparent 50%),
-    radial-gradient(circle at 70% 60%, rgba(138, 43, 226, 0.05), transparent 50%);
+    radial-gradient(circle at 30% 40%, rgba(0, 113, 227, 0.15), transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(138, 43, 226, 0.12), transparent 50%);
   pointer-events: none;
 }
 
+.product-section.dark::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(0, 212, 255, 0.5) 50%,
+    transparent 100%);
+  opacity: 0.6;
+}
+
 .product-section h2 {
-  font-size: 48px;
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.003em;
-  margin-bottom: 6px;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
   position: relative;
   z-index: 1;
   animation: fadeInUp 1s ease-out both;
 }
 
+.product-section.light h2 {
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-blue) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.product-section.dark h2 {
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.3));
+}
+
 .product-section .subtitle {
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.17;
-  letter-spacing: 0.009em;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
   color: var(--text-secondary);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   position: relative;
   z-index: 1;
   animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .product-section.dark .subtitle {
-  color: #a1a1a6;
+  color: #d1d1d6;
 }
 
 .product-section .feature-description {
@@ -370,10 +462,14 @@ nav .nav-links a:hover::before {
 
 .feature-card {
   text-align: center;
-  padding: 30px;
+  padding: 40px 32px;
   position: relative;
-  border-radius: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
   opacity: 0;
   transform: translateY(30px);
   background: rgba(255, 255, 255, 0.5);
@@ -386,18 +482,21 @@ nav .nav-links a:hover::before {
 }
 
 .feature-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 113, 227, 0.2);
 }
 
 .product-section.dark .feature-card {
   background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .product-section.dark .feature-card:hover {
   background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 40px rgba(0, 113, 227, 0.2);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-purple);
+  border-color: rgba(138, 43, 226, 0.4);
 }
 
 .feature-card .icon {
@@ -458,48 +557,76 @@ nav .nav-links a:hover::before {
   align-items: center;
   justify-content: center;
   min-width: 28px;
-  padding: 12px 22px;
+  padding: 14px 28px;
   border-radius: 980px;
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.17;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .btn-primary {
-  background: var(--primary-blue);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
   color: #fff;
+  box-shadow: var(--shadow-md);
 }
 
 .btn-primary:hover {
-  background: var(--primary-blue-hover);
-  transform: scale(1.02);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--primary-blue);
   border: 2px solid var(--primary-blue);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
   background: var(--primary-blue);
   color: #fff;
-  transform: scale(1.02);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-secondary.dark {
   color: #fff;
-  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .btn-secondary.dark:hover {
   background: #fff;
   color: #000;
+  border-color: #fff;
 }
 
 /* Visual Elements */
@@ -582,18 +709,20 @@ nav .nav-links a:hover::before {
 
 .placeholder-visual {
   width: 100%;
-  max-width: 600px;
-  height: 400px;
-  margin: 40px auto;
-  background: linear-gradient(135deg, rgba(0, 113, 227, 0.1), rgba(0, 113, 227, 0.05));
-  border-radius: 20px;
+  max-width: 700px;
+  height: 450px;
+  margin: 60px auto;
+  background: linear-gradient(135deg, rgba(0, 113, 227, 0.15), rgba(138, 43, 226, 0.1));
+  border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 72px;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-lg), inset 0 0 60px rgba(0, 212, 255, 0.1);
 }
 
 .placeholder-visual::before {
@@ -603,8 +732,24 @@ nav .nav-links a:hover::before {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 50%);
-  animation: pulse 4s ease-in-out infinite;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.2), transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(138, 43, 226, 0.15), transparent 40%);
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.placeholder-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 212, 255, 0.03) 2px,
+    rgba(0, 212, 255, 0.03) 4px
+  );
+  animation: scan 8s linear infinite;
 }
 
 @keyframes pulse {
@@ -612,7 +757,16 @@ nav .nav-links a:hover::before {
     transform: scale(1) rotate(0deg);
   }
   50% {
-    transform: scale(1.1) rotate(180deg);
+    transform: scale(1.15) rotate(180deg);
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
   }
 }
 
@@ -623,34 +777,55 @@ nav .nav-links a:hover::before {
   }
 
   .hero h1 {
-    font-size: 40px;
+    font-size: 44px;
   }
 
   .hero .tagline {
-    font-size: 21px;
+    font-size: 24px;
+  }
+
+  .product-section {
+    min-height: 500px;
+    padding: var(--space-lg) 0;
   }
 
   .product-section h2 {
-    font-size: 32px;
+    font-size: 40px;
   }
 
   .product-section .subtitle {
-    font-size: 19px;
+    font-size: 21px;
   }
 
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .feature-card {
+    padding: 32px 24px;
   }
 
   .button-group {
     flex-direction: column;
     width: 100%;
     padding: 0 20px;
+    gap: 16px;
   }
 
   .btn {
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
+  }
+
+  .placeholder-visual {
+    height: 300px;
+    margin: 40px 20px;
+  }
+
+  .brain-visual {
+    width: 240px;
+    height: 240px;
   }
 }
 
