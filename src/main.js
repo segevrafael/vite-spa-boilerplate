@@ -714,18 +714,18 @@ function createFooterSection() {
   return `
     <footer id="contact" class="footer finisher-header" style="width: 100%; height: 400px; position: relative;">
       <div class="footer-content">
-        <h2>Get in Touch</h2>
-        <p>Ready to enhance your cognitive potential?</p>
+        <h2 style="color: #fff !important;">Get in Touch</h2>
+        <p style="color: #fff !important;">Ready to enhance your cognitive potential?</p>
         <div class="button-group">
           <button class="btn btn-primary" onclick="openContactModal()">Contact Sales</button>
           <button class="btn btn-secondary dark" onclick="openContactModal()">Join Waitlist</button>
         </div>
         <div class="footer-links">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Support</a>
+          <a href="#" style="color: #fff !important;">Privacy</a>
+          <a href="#" style="color: #fff !important;">Terms</a>
+          <a href="#" style="color: #fff !important;">Support</a>
         </div>
-        <p class="copyright">&copy; 2025 NeuroSync. All rights reserved.</p>
+        <p class="copyright" style="color: #fff !important;">&copy; 2025 NeuroSync. All rights reserved.</p>
       </div>
     </footer>
 
