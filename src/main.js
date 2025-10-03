@@ -5,6 +5,7 @@ function initializeApp() {
   const app = document.querySelector('#app')
 
   app.innerHTML = `
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     ${createNavigation()}
     ${createHeroSection()}
     ${createAIFeaturesSection()}
@@ -13,19 +14,20 @@ function initializeApp() {
     ${createTestimonialsSection()}
     ${createExpertQASection()}
     ${createFooterSection()}
+    ${createContrastToggle()}
   `
 }
 
 function createNavigation() {
   return `
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
       <div class="nav-content">
-        <a href="#" class="logo">NeuroSync</a>
+        <a href="#" class="logo" aria-label="NeuroSync Home">NeuroSync</a>
         <ul class="nav-links">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#technology">Technology</a></li>
-          <li><a href="#applications">Applications</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#features" aria-label="Navigate to Features section">Features</a></li>
+          <li><a href="#technology" aria-label="Navigate to Technology section">Technology</a></li>
+          <li><a href="#applications" aria-label="Navigate to Applications section">Applications</a></li>
+          <li><a href="#contact" aria-label="Navigate to Contact section">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -34,13 +36,13 @@ function createNavigation() {
 
 function createHeroSection() {
   return `
-    <section class="hero fade-in">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
+    <section id="main-content" class="hero fade-in" role="banner" aria-label="Hero section">
+      <div class="hero-badge" aria-label="Limited edition announcement">
+        <span class="badge-dot" aria-hidden="true"></span>
         Limited Genesis Edition • Only 2,500 Units Worldwide
       </div>
-      <canvas id="brainWaveCanvas" class="brain-wave-canvas"></canvas>
-      <div class="particles-bg"></div>
+      <canvas id="brainWaveCanvas" class="brain-wave-canvas" aria-hidden="true"></canvas>
+      <div class="particles-bg" aria-hidden="true"></div>
       <div class="hero-content">
         <h1 class="split-text">NeuroSync Pro</h1>
         <p class="tagline reveal-text">The Future of Human Potential is Here</p>
@@ -49,17 +51,17 @@ function createHeroSection() {
           Control your world, unlock hidden cognitive abilities, and transcend the limitations
           of traditional human-computer interaction.
         </p>
-        <div class="hero-stats">
+        <div class="hero-stats" role="group" aria-label="NeuroSync statistics">
           <div class="stat-item">
-            <span class="stat-number">15,000+</span>
+            <span class="stat-number" data-count="15000">0</span><span class="stat-suffix">+</span>
             <span class="stat-label">Early Adopters</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">97%</span>
+            <span class="stat-number" data-count="97">0</span><span class="stat-suffix">%</span>
             <span class="stat-label">Accuracy Rate</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">1ms</span>
+            <span class="stat-number" data-count="1">0</span><span class="stat-suffix">ms</span>
             <span class="stat-label">Response Time</span>
           </div>
         </div>
@@ -107,12 +109,12 @@ function createHeroSection() {
 
 function createAIFeaturesSection() {
   return `
-    <section id="features" class="product-section light">
-      <div class="section-badge">
-        <span class="badge-icon">⚡</span>
+    <section id="features" class="product-section light" role="region" aria-labelledby="features-heading">
+      <div class="section-badge" aria-label="Technology badge">
+        <span class="badge-icon" aria-hidden="true">⚡</span>
         Powered by Proprietary Neural AI
       </div>
-      <h2>What Makes NeuroSync Impossible to Replicate</h2>
+      <h2 id="features-heading">What Makes NeuroSync Impossible to Replicate</h2>
       <p class="subtitle">3 years of MIT research. 40+ patents. Zero competitors.</p>
       <p class="feature-description">
         While others are still perfecting basic EEG sensors, we've achieved what was thought impossible:
@@ -897,7 +899,26 @@ function setupScrollEffects() {
     })
   })
 
-  // Intersection Observer for fade-in animations
+  // Count-up animation for stats
+  function animateCount(element) {
+    const target = parseInt(element.getAttribute('data-count'))
+    const duration = 2000 // 2 seconds
+    const start = 0
+    const increment = target / (duration / 16) // 60fps
+    let current = start
+
+    const timer = setInterval(() => {
+      current += increment
+      if (current >= target) {
+        element.textContent = target.toLocaleString()
+        clearInterval(timer)
+      } else {
+        element.textContent = Math.floor(current).toLocaleString()
+      }
+    }, 16)
+  }
+
+  // Intersection Observer for fade-in animations and count-up
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -907,6 +928,15 @@ function setupScrollEffects() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('fade-in')
+
+        // Trigger count-up animation for stats
+        if (entry.target.classList.contains('hero-stats')) {
+          const statNumbers = entry.target.querySelectorAll('.stat-number[data-count]')
+          statNumbers.forEach(stat => {
+            animateCount(stat)
+          })
+          observer.unobserve(entry.target) // Only animate once
+        }
       }
     })
   }, observerOptions)
@@ -915,6 +945,12 @@ function setupScrollEffects() {
   document.querySelectorAll('.product-section').forEach(section => {
     observer.observe(section)
   })
+
+  // Observe hero stats for count-up animation
+  const heroStats = document.querySelector('.hero-stats')
+  if (heroStats) {
+    observer.observe(heroStats)
+  }
 
   // Observe feature cards for stagger animation
   document.querySelectorAll('.feature-card').forEach((card, index) => {
@@ -1024,6 +1060,50 @@ window.addEventListener('click', function(event) {
   }
 })
 
+// Contrast Toggle Function
+function createContrastToggle() {
+  return `
+    <button class="contrast-toggle"
+            onclick="toggleContrastMode()"
+            aria-label="Toggle high contrast mode"
+            aria-pressed="false"
+            id="contrastToggle">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+    </button>
+  `
+}
+
+window.toggleContrastMode = function() {
+  const html = document.documentElement
+  const toggleBtn = document.getElementById('contrastToggle')
+  const currentTheme = html.getAttribute('data-theme')
+
+  if (currentTheme === 'high-contrast') {
+    html.removeAttribute('data-theme')
+    localStorage.setItem('theme', 'default')
+    toggleBtn.setAttribute('aria-pressed', 'false')
+  } else {
+    html.setAttribute('data-theme', 'high-contrast')
+    localStorage.setItem('theme', 'high-contrast')
+    toggleBtn.setAttribute('aria-pressed', 'true')
+  }
+}
+
+// Load saved theme on init
+function loadSavedTheme() {
+  const savedTheme = localStorage.getItem('theme')
+  const toggleBtn = document.getElementById('contrastToggle')
+
+  if (savedTheme === 'high-contrast') {
+    document.documentElement.setAttribute('data-theme', 'high-contrast')
+    if (toggleBtn) {
+      toggleBtn.setAttribute('aria-pressed', 'true')
+    }
+  }
+}
+
 // Initialize app
 initializeApp()
 setupBrainWaveAnimation()
@@ -1031,3 +1111,4 @@ createParticles()
 setupParallax()
 setupScrollEffects()
 initializeFinisherHeader()
+loadSavedTheme()
