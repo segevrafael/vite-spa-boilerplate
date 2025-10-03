@@ -1,96 +1,393 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Apple-style color palette */
+  --primary-blue: #0071e3;
+  --primary-blue-hover: #0077ed;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --background: #ffffff;
+  --nav-background: rgba(255, 255, 255, 0.72);
+  --nav-background-scrolled: rgba(255, 255, 255, 0.92);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  /* Typography */
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--text-primary);
+  overflow-x: hidden;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: var(--nav-background);
+  backdrop-filter: saturate(180%) blur(20px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
 }
 
-#app {
-  max-width: 1280px;
+nav.scrolled {
+  background: var(--nav-background-scrolled);
+}
+
+nav .nav-content {
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 22px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+nav .nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+nav .nav-links a:hover {
+  opacity: 1;
+}
+
+/* Hero Section */
+.hero {
+  margin-top: 44px;
+  padding: 60px 0 80px;
   text-align: center;
+  background: #000;
+  color: #fff;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(0, 113, 227, 0.15), transparent 70%);
+  z-index: 0;
 }
 
-.card {
-  padding: 2em;
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 20px;
 }
 
-.read-the-docs {
-  color: #888;
+.hero h1 {
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: -0.005em;
+  margin-bottom: 6px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.hero .tagline {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: 0.007em;
+  color: #a1a1a6;
+  margin-bottom: 20px;
+}
+
+.hero .description {
+  font-size: 17px;
+  line-height: 1.47;
+  color: #a1a1a6;
+  margin-bottom: 30px;
+}
+
+/* Product Sections */
+.product-section {
+  padding: 80px 20px;
+  text-align: center;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-section.light {
+  background: #fbfbfd;
+}
+
+.product-section.dark {
+  background: #000;
+  color: #fff;
+}
+
+.product-section h2 {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.003em;
+  margin-bottom: 6px;
+}
+
+.product-section .subtitle {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.17;
+  letter-spacing: 0.009em;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.product-section.dark .subtitle {
+  color: #a1a1a6;
+}
+
+.product-section .feature-description {
+  font-size: 17px;
+  line-height: 1.47;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: var(--text-secondary);
+}
+
+.product-section.dark .feature-description {
+  color: #a1a1a6;
+}
+
+/* Feature Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 60px auto 0;
+  padding: 0 20px;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 30px;
+}
+
+.feature-card .icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 17px;
+  line-height: 1.47;
+  color: var(--text-secondary);
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  padding: 12px 22px;
+  border-radius: 980px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.17;
+  text-decoration: none;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.3s ease;
+  border: none;
+  font-family: inherit;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.btn-primary {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-blue-hover);
+  transform: scale(1.02);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-blue);
+  color: #fff;
+  transform: scale(1.02);
+}
+
+.btn-secondary.dark {
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-secondary.dark:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Visual Elements */
+.product-visual {
+  margin: 60px 0;
+  max-width: 800px;
+  width: 100%;
+}
+
+.product-visual img {
+  width: 100%;
+  height: auto;
+}
+
+.placeholder-visual {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin: 40px auto;
+  background: linear-gradient(135deg, rgba(0, 113, 227, 0.1), rgba(0, 113, 227, 0.05));
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholder-visual::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 50%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
   }
-  a:hover {
-    color: #747bff;
+  50% {
+    transform: scale(1.1) rotate(180deg);
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav .nav-links {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero .tagline {
+    font-size: 21px;
+  }
+
+  .product-section h2 {
+    font-size: 32px;
+  }
+
+  .product-section .subtitle {
+    font-size: 19px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .button-group {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
