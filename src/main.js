@@ -10,6 +10,8 @@ function initializeApp() {
     ${createAIFeaturesSection()}
     ${createTechnologySection()}
     ${createApplicationsSection()}
+    ${createTestimonialsSection()}
+    ${createExpertQASection()}
     ${createFooterSection()}
   `
 }
@@ -339,6 +341,285 @@ function createApplicationsSection() {
   `
 }
 
+function createTestimonialsSection() {
+  return `
+    <section id="testimonials" class="product-section dark">
+      <h2>Trusted by Innovators</h2>
+      <p class="subtitle">Real experiences from our early adopters</p>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="url(#avatarGradient1)"/>
+                <text x="50" y="60" font-size="32" fill="#fff" text-anchor="middle" font-weight="600">DS</text>
+                <defs>
+                  <linearGradient id="avatarGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#0071e3"/>
+                    <stop offset="100%" style="stop-color:#00d4ff"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="testimonial-info">
+              <h4>Dr. Sarah Mitchell</h4>
+              <p class="testimonial-role">Neuroscientist, Stanford University</p>
+            </div>
+            <div class="rating">★★★★★</div>
+          </div>
+          <p class="testimonial-text">"As a researcher in cognitive neuroscience, I'm impressed by the signal clarity and low latency. NeuroSync has transformed how we conduct brain-computer interface studies. The 256-channel array captures unprecedented detail."</p>
+          <p class="testimonial-meta">Verified Purchase • March 2024</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="url(#avatarGradient2)"/>
+                <text x="50" y="60" font-size="32" fill="#fff" text-anchor="middle" font-weight="600">JC</text>
+                <defs>
+                  <linearGradient id="avatarGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#8a2be2"/>
+                    <stop offset="100%" style="stop-color:#f88aff"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="testimonial-info">
+              <h4>James Chen</h4>
+              <p class="testimonial-role">Software Engineer, Tech Enthusiast</p>
+            </div>
+            <div class="rating">★★★★★</div>
+          </div>
+          <p class="testimonial-text">"I've been using NeuroSync for 3 months to control my smart home setup. The accuracy is mind-blowing - literally! The adaptive learning really does get better over time. Battery life easily lasts the full day."</p>
+          <p class="testimonial-meta">Verified Purchase • February 2024</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="url(#avatarGradient3)"/>
+                <text x="50" y="60" font-size="32" fill="#fff" text-anchor="middle" font-weight="600">MP</text>
+                <defs>
+                  <linearGradient id="avatarGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1bffc2"/>
+                    <stop offset="100%" style="stop-color:#00d4ff"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="testimonial-info">
+              <h4>Maria Patel</h4>
+              <p class="testimonial-role">Clinical Psychologist</p>
+            </div>
+            <div class="rating">★★★★★</div>
+          </div>
+          <p class="testimonial-text">"I use NeuroSync with patients for neurofeedback therapy. The real-time analysis and visualization capabilities are exceptional. My patients see measurable improvements in focus and anxiety management."</p>
+          <p class="testimonial-meta">Verified Purchase • January 2024</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="url(#avatarGradient4)"/>
+                <text x="50" y="60" font-size="32" fill="#fff" text-anchor="middle" font-weight="600">AK</text>
+                <defs>
+                  <linearGradient id="avatarGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#f88aff"/>
+                    <stop offset="100%" style="stop-color:#8a2be2"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="testimonial-info">
+              <h4>Alex Kim</h4>
+              <p class="testimonial-role">Professional Gamer & Streamer</p>
+            </div>
+            <div class="rating">★★★★★</div>
+          </div>
+          <p class="testimonial-text">"Game-changer for competitive gaming. Being able to monitor my focus states during tournaments has improved my performance significantly. The device is comfortable even during 8-hour sessions."</p>
+          <p class="testimonial-meta">Verified Purchase • March 2024</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="url(#avatarGradient5)"/>
+                <text x="50" y="60" font-size="32" fill="#fff" text-anchor="middle" font-weight="600">RB</text>
+                <defs>
+                  <linearGradient id="avatarGradient5" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#0071e3"/>
+                    <stop offset="100%" style="stop-color:#8a2be2"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="testimonial-info">
+              <h4>Dr. Robert Barnes</h4>
+              <p class="testimonial-role">Neurologist, Mayo Clinic</p>
+            </div>
+            <div class="rating">★★★★★</div>
+          </div>
+          <p class="testimonial-text">"The medical-grade accuracy is remarkable for a consumer device. We're using NeuroSync in our sleep disorder clinic for at-home monitoring. The data quality rivals equipment costing 10x more."</p>
+          <p class="testimonial-meta">Verified Purchase • December 2023</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="url(#avatarGradient6)"/>
+                <text x="50" y="60" font-size="32" fill="#fff" text-anchor="middle" font-weight="600">LW</text>
+                <defs>
+                  <linearGradient id="avatarGradient6" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#00d4ff"/>
+                    <stop offset="100%" style="stop-color:#1bffc2"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="testimonial-info">
+              <h4>Lisa Wang</h4>
+              <p class="testimonial-role">Meditation Instructor & Wellness Coach</p>
+            </div>
+            <div class="rating">★★★★★</div>
+          </div>
+          <p class="testimonial-text">"NeuroSync has revolutionized my meditation practice and teaching. Seeing real-time feedback on brain states helps my students reach deeper meditative states faster. The privacy-first approach is essential for this work."</p>
+          <p class="testimonial-meta">Verified Purchase • February 2024</p>
+        </div>
+      </div>
+    </section>
+  `
+}
+
+function createExpertQASection() {
+  return `
+    <section id="expert-qa" class="product-section light">
+      <div class="expert-header">
+        <div class="expert-profile">
+          <div class="expert-avatar">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="48" fill="url(#expertGradient)" stroke="url(#expertStroke)" stroke-width="2"/>
+              <text x="50" y="60" font-size="28" fill="#fff" text-anchor="middle" font-weight="700">Dr.N</text>
+              <defs>
+                <linearGradient id="expertGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#0071e3"/>
+                  <stop offset="100%" style="stop-color:#00d4ff"/>
+                </linearGradient>
+                <linearGradient id="expertStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#00d4ff"/>
+                  <stop offset="100%" style="stop-color:#8a2be2"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="expert-info">
+            <h3>Ask the Expert</h3>
+            <h4>Dr. Emily Nakamura, Ph.D.</h4>
+            <p class="expert-credentials">Chief Neuroscientist at NeuroSync | 15+ years in BCI Research</p>
+            <p class="expert-bio">Former MIT researcher specializing in neural signal processing and brain-computer interfaces. Published 40+ peer-reviewed papers on EEG analysis and cognitive neuroscience.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-grid">
+        <div class="qa-item">
+          <div class="question">
+            <svg class="qa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="url(#qaGradient)" stroke-width="2"/>
+              <text x="12" y="17" font-size="14" fill="url(#qaGradient)" text-anchor="middle" font-weight="700">Q</text>
+              <defs>
+                <linearGradient id="qaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#0071e3"/>
+                  <stop offset="100%" style="stop-color:#00d4ff"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <h4>How accurate is NeuroSync compared to medical-grade EEG equipment?</h4>
+          </div>
+          <div class="answer">
+            <p><strong>Dr. Nakamura:</strong> NeuroSync achieves 94-97% accuracy compared to clinical EEG systems, which is exceptional for a consumer device. Our 256-channel array and 1ms latency rival equipment used in research labs. The key difference is in surgical-grade systems, but for non-invasive BCI applications, NeuroSync meets or exceeds medical standards for signal quality.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="question">
+            <svg class="qa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="url(#qaGradient)" stroke-width="2"/>
+              <text x="12" y="17" font-size="14" fill="url(#qaGradient)" text-anchor="middle" font-weight="700">Q</text>
+            </svg>
+            <h4>Is it safe to use every day? Are there any health risks?</h4>
+          </div>
+          <div class="answer">
+            <p><strong>Dr. Nakamura:</strong> Absolutely safe. NeuroSync only reads electrical signals - it doesn't emit any radiation or electrical stimulation. We've conducted extensive safety testing and received FDA clearance as a Class II medical device. Daily use is not only safe but recommended for optimal adaptive learning. Think of it like wearing headphones, but instead of playing sound, it's listening to your brain.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="question">
+            <svg class="qa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="url(#qaGradient)" stroke-width="2"/>
+              <text x="12" y="17" font-size="14" fill="url(#qaGradient)" text-anchor="middle" font-weight="700">Q</text>
+            </svg>
+            <h4>How does the AI "learn" my brain patterns?</h4>
+          </div>
+          <div class="answer">
+            <p><strong>Dr. Nakamura:</strong> Our proprietary neural network analyzes your unique brain signature over the first few weeks. Everyone's brain patterns are different - like fingerprints. The AI builds a personalized model of your neural activity, learning to distinguish between different mental states (focus, relaxation, specific intentions). This happens entirely on-device, so your neural data never leaves NeuroSync. The more you use it, the better it understands you.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="question">
+            <svg class="qa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="url(#qaGradient)" stroke-width="2"/>
+              <text x="12" y="17" font-size="14" fill="url(#qaGradient)" text-anchor="middle" font-weight="700">Q</text>
+            </svg>
+            <h4>Can I really control devices with my thoughts?</h4>
+          </div>
+          <div class="answer">
+            <p><strong>Dr. Nakamura:</strong> Yes! But let me clarify how it works. You're not "thinking words" at devices. Instead, you learn to generate specific mental patterns - like imagining hand movements or focusing attention. After calibration (usually 20-30 minutes), you can trigger commands reliably. Current users achieve 85-95% accuracy for basic commands within a week. Complex control takes practice, similar to learning a musical instrument.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="question">
+            <svg class="qa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="url(#qaGradient)" stroke-width="2"/>
+              <text x="12" y="17" font-size="14" fill="url(#qaGradient)" text-anchor="middle" font-weight="700">Q</text>
+            </svg>
+            <h4>What about data privacy? Can anyone read my thoughts?</h4>
+          </div>
+          <div class="answer">
+            <p><strong>Dr. Nakamura:</strong> This is our most common concern, and I understand why. Let me be crystal clear: NeuroSync cannot "read thoughts" in the way you imagine. It detects electrical patterns associated with brain states, not specific thoughts or memories. All processing happens locally on the device - nothing is transmitted to the cloud. Your neural data is encrypted end-to-end and you have complete control over deletion. We're GDPR and HIPAA compliant.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="question">
+            <svg class="qa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="url(#qaGradient)" stroke-width="2"/>
+              <text x="12" y="17" font-size="14" fill="url(#qaGradient)" text-anchor="middle" font-weight="700">Q</text>
+            </svg>
+            <h4>How long does it take to see results?</h4>
+          </div>
+          <div class="answer">
+            <p><strong>Dr. Nakamura:</strong> It depends on your use case. For simple applications like meditation tracking or focus monitoring, you'll see meaningful data from day one. For device control, expect basic functionality within 3-5 days of daily use, with proficiency developing over 2-3 weeks. Clinical applications like neurofeedback therapy typically show measurable improvements within 4-6 weeks of regular sessions. The key is consistency - the device learns faster with regular use.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="expert-cta">
+        <p>Have more questions? Our neuroscience team is here to help.</p>
+        <button class="btn btn-primary" onclick="openContactModal()">Ask an Expert</button>
+      </div>
+    </section>
+  `
+}
+
 function createFooterSection() {
   return `
     <footer id="contact" class="footer finisher-header" style="width: 100%; height: 400px; position: relative;">
@@ -549,6 +830,18 @@ function setupScrollEffects() {
   document.querySelectorAll('.feature-card').forEach((card, index) => {
     card.style.animationDelay = `${index * 0.1}s`
     observer.observe(card)
+  })
+
+  // Observe testimonial cards
+  document.querySelectorAll('.testimonial-card').forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.15}s`
+    observer.observe(card)
+  })
+
+  // Observe Q&A items
+  document.querySelectorAll('.qa-item').forEach((item, index) => {
+    item.style.animationDelay = `${index * 0.1}s`
+    observer.observe(item)
   })
 }
 
