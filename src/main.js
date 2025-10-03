@@ -146,36 +146,71 @@ function createAIFeaturesSection() {
 
 function createTechnologySection() {
   return `
-    <section id="technology" class="product-section dark">
-      <h2>Advanced Neural Interface</h2>
-      <p class="subtitle">Technology that connects with you.</p>
-      <div class="placeholder-visual" style="background: linear-gradient(135deg, rgba(0, 113, 227, 0.2), rgba(138, 43, 226, 0.1)); margin-top: 60px;">
-        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px;">
-          <circle cx="60" cy="60" r="40" fill="none" stroke="url(#techGradient)" stroke-width="3"/>
-          <circle cx="60" cy="60" r="30" fill="none" stroke="url(#techGradient)" stroke-width="2" opacity="0.7"/>
-          <circle cx="60" cy="60" r="20" fill="none" stroke="url(#techGradient)" stroke-width="2" opacity="0.5"/>
-          <line x1="60" y1="20" x2="60" y2="35" stroke="url(#techGradient)" stroke-width="3" stroke-linecap="round"/>
-          <line x1="60" y1="85" x2="60" y2="100" stroke="url(#techGradient)" stroke-width="3" stroke-linecap="round"/>
-          <line x1="20" y1="60" x2="35" y2="60" stroke="url(#techGradient)" stroke-width="3" stroke-linecap="round"/>
-          <line x1="85" y1="60" x2="100" y2="60" stroke="url(#techGradient)" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="60" cy="60" r="8" fill="url(#techGradient)">
-            <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <defs>
-            <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#0071e3"/>
-              <stop offset="100%" style="stop-color:#8a2be2"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      <p class="feature-description">
-        Non-invasive sensors capture EEG signals with medical-grade accuracy.
-        Wireless connectivity and all-day battery life keep you in sync wherever you go.
-      </p>
-      <div class="button-group">
-        <a href="#" class="btn btn-primary">View specifications</a>
-        <a href="#" class="btn btn-secondary dark">Watch the keynote</a>
+    <section id="technology" class="product-section dark asymmetric-section">
+      <div class="section-content-wrapper">
+        <div class="tech-content">
+          <h2>Advanced Neural Interface</h2>
+          <p class="subtitle">Technology that connects with you.</p>
+          <p class="feature-description">
+            Non-invasive sensors capture EEG signals with medical-grade accuracy.
+            Wireless connectivity and all-day battery life keep you in sync wherever you go.
+          </p>
+          <div class="tech-specs">
+            <div class="spec-item">
+              <span class="spec-number">256</span>
+              <span class="spec-label">Channels</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-number">1ms</span>
+              <span class="spec-label">Latency</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-number">24h</span>
+              <span class="spec-label">Battery</span>
+            </div>
+          </div>
+          <div class="button-group">
+            <a href="#" class="btn btn-primary">View specifications</a>
+            <a href="#" class="btn btn-secondary dark">Watch the keynote</a>
+          </div>
+        </div>
+        <div class="tech-visual">
+          <div class="placeholder-visual neon-visual">
+            <div class="neural-network-viz">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="neural-svg">
+                <!-- Central brain core -->
+                <circle cx="100" cy="100" r="50" fill="none" stroke="url(#neonGradient)" stroke-width="2" class="pulse-ring-1"/>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="url(#neonGradient)" stroke-width="2" opacity="0.7" class="pulse-ring-2"/>
+                <circle cx="100" cy="100" r="30" fill="none" stroke="url(#neonGradient)" stroke-width="2" opacity="0.5" class="pulse-ring-3"/>
+
+                <!-- Neural nodes -->
+                <circle cx="100" cy="50" r="5" fill="url(#neonGradient)" class="node"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
+                <circle cx="150" cy="100" r="5" fill="url(#neonGradient)" class="node"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></circle>
+                <circle cx="100" cy="150" r="5" fill="url(#neonGradient)" class="node"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.5s" repeatCount="indefinite"/></circle>
+                <circle cx="50" cy="100" r="5" fill="url(#neonGradient)" class="node"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" begin="0.5s" repeatCount="indefinite"/></circle>
+
+                <!-- Connection lines -->
+                <line x1="100" y1="50" x2="100" y2="70" stroke="url(#neonGradient)" stroke-width="1.5" opacity="0.6"/>
+                <line x1="150" y1="100" x2="130" y2="100" stroke="url(#neonGradient)" stroke-width="1.5" opacity="0.6"/>
+                <line x1="100" y1="150" x2="100" y2="130" stroke="url(#neonGradient)" stroke-width="1.5" opacity="0.6"/>
+                <line x1="50" y1="100" x2="70" y2="100" stroke="url(#neonGradient)" stroke-width="1.5" opacity="0.6"/>
+
+                <!-- Central core with animation -->
+                <circle cx="100" cy="100" r="15" fill="url(#neonGradient)" opacity="0.8">
+                  <animate attributeName="r" values="15;18;15" dur="3s" repeatCount="indefinite"/>
+                </circle>
+
+                <defs>
+                  <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#00d4ff"/>
+                    <stop offset="50%" style="stop-color:#8a2be2"/>
+                    <stop offset="100%" style="stop-color:#f88aff"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   `
@@ -311,8 +346,8 @@ function createFooterSection() {
         <h2>Get in Touch</h2>
         <p>Ready to enhance your cognitive potential?</p>
         <div class="button-group">
-          <a href="#" class="btn btn-primary">Contact Sales</a>
-          <a href="#" class="btn btn-secondary dark">Join Waitlist</a>
+          <button class="btn btn-primary" onclick="openContactModal()">Contact Sales</button>
+          <button class="btn btn-secondary dark" onclick="openContactModal()">Join Waitlist</button>
         </div>
         <div class="footer-links">
           <a href="#">Privacy</a>
@@ -322,6 +357,34 @@ function createFooterSection() {
         <p class="copyright">&copy; 2025 NeuroSync. All rights reserved.</p>
       </div>
     </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeContactModal()">&times;</button>
+        <h2>Contact Us</h2>
+        <p class="modal-subtitle">Experience the future of neural technology</p>
+        <form class="contact-form" onsubmit="handleContactSubmit(event)">
+          <div class="form-group">
+            <input type="text" id="name" required placeholder=" ">
+            <label for="name">Full Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" required placeholder=" ">
+            <label for="email">Email Address</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" placeholder=" ">
+            <label for="phone">Phone (Optional)</label>
+          </div>
+          <div class="form-group">
+            <textarea id="message" rows="4" required placeholder=" "></textarea>
+            <label for="message">Message</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+        </form>
+      </div>
+    </div>
   `
 }
 
@@ -536,6 +599,47 @@ function initializeFinisherHeader() {
     ]
   })
 }
+
+// Modal functions
+window.openContactModal = function() {
+  const modal = document.getElementById('contactModal')
+  if (modal) {
+    modal.style.display = 'flex'
+    document.body.style.overflow = 'hidden'
+  }
+}
+
+window.closeContactModal = function() {
+  const modal = document.getElementById('contactModal')
+  if (modal) {
+    modal.style.display = 'none'
+    document.body.style.overflow = ''
+  }
+}
+
+window.handleContactSubmit = function(event) {
+  event.preventDefault()
+  const form = event.target
+  const formData = {
+    name: form.querySelector('#name').value,
+    email: form.querySelector('#email').value,
+    phone: form.querySelector('#phone').value,
+    message: form.querySelector('#message').value
+  }
+
+  console.log('Form submitted:', formData)
+  alert('Thank you for your interest! We\'ll be in touch soon.')
+  closeContactModal()
+  form.reset()
+}
+
+// Close modal on outside click
+window.addEventListener('click', function(event) {
+  const modal = document.getElementById('contactModal')
+  if (event.target === modal) {
+    closeContactModal()
+  }
+})
 
 // Initialize app
 initializeApp()
