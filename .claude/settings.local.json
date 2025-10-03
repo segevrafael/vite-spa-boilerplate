@@ -29,7 +29,10 @@
       "Bash(start http://localhost:5173)",
       "Bash(powershell:*)",
       "Bash(tasklist)",
-      "Bash(cmd /c:*)"
+      "Bash(cmd /c:*)",
+      "Read(//e/E_Downloads/**)",
+      "WebSearch",
+      "Bash(timeout:*)"
     ],
     "deny": [],
     "ask": []
