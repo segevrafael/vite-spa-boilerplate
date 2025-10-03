@@ -48,6 +48,25 @@ CSS uses Apple-inspired design system with:
 - Responsive grid layouts with `grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))`
 - Scroll-triggered animations via Intersection Observer API
 
+## Git Workflow
+
+**IMPORTANT**: After making any code changes, ALWAYS commit and push automatically:
+
+1. Use descriptive commit messages that explain what was changed and why
+2. Include all modified files in the commit
+3. Always push to the `dev` branch after committing
+4. Format commit messages with:
+   - Clear summary of changes
+   - Bullet points for major modifications
+   - Claude Code attribution footer
+
+Example workflow:
+```bash
+git add <modified-files>
+git commit -m "Descriptive message with changes..."
+git push origin dev
+```
+
 ## Windows-Specific Notes
 
 **Important**: On Windows, Vite dev server may not display output properly in Git Bash. Use Windows Terminal or CMD instead:
