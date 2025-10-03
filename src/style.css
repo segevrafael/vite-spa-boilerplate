@@ -1568,12 +1568,14 @@ html {
   font-weight: 700;
   margin-bottom: 20px;
   letter-spacing: -0.02em;
+  color: #fff !important;
 }
 
 .footer-content > p {
   font-size: 21px;
   opacity: 0.9;
   margin-bottom: 40px;
+  color: #fff !important;
 }
 
 .footer-links {
@@ -1585,7 +1587,7 @@ html {
 }
 
 .footer-links a {
-  color: #fff;
+  color: #fff !important;
   text-decoration: none;
   font-size: 14px;
   opacity: 0.8;
@@ -1600,7 +1602,7 @@ html {
   margin-top: 20px;
   font-size: 12px;
   opacity: 0.7;
-  color: #fff;
+  color: #fff !important;
 }
 
 @media (max-width: 768px) {
