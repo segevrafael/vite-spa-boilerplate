@@ -35,19 +35,48 @@ function createNavigation() {
 function createHeroSection() {
   return `
     <section class="hero fade-in">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Limited Genesis Edition • Only 2,500 Units Worldwide
+      </div>
       <canvas id="brainWaveCanvas" class="brain-wave-canvas"></canvas>
       <div class="particles-bg"></div>
       <div class="hero-content">
         <h1 class="split-text">NeuroSync Pro</h1>
-        <p class="tagline reveal-text">Think beyond boundaries.</p>
+        <p class="tagline reveal-text">The Future of Human Potential is Here</p>
         <p class="description reveal-text">
-          Revolutionary brain-computer interface powered by advanced AI.
-          Understand and interpret your brain waves with unprecedented accuracy.
+          Join the neural revolution. NeuroSync Pro isn't just technology—it's an extension of your mind.
+          Control your world, unlock hidden cognitive abilities, and transcend the limitations
+          of traditional human-computer interaction.
         </p>
-        <div class="button-group">
-          <a href="#" class="btn btn-primary">Pre-order now</a>
-          <a href="#features" class="btn btn-secondary dark">Learn more</a>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">15,000+</span>
+            <span class="stat-label">Early Adopters</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">97%</span>
+            <span class="stat-label">Accuracy Rate</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">1ms</span>
+            <span class="stat-label">Response Time</span>
+          </div>
         </div>
+        <div class="button-group">
+          <button class="btn btn-primary btn-pulse" onclick="openContactModal()">
+            Reserve Your Unit — $2,499
+            <span class="btn-subtext">Join 487 orders this week</span>
+          </button>
+          <a href="#features" class="btn btn-secondary dark">Explore Capabilities →</a>
+        </div>
+        <p class="hero-guarantee">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; margin-right: 8px;">
+            <circle cx="8" cy="8" r="7" stroke="#00d4ff" stroke-width="2"/>
+            <path d="M5 8l2 2 4-4" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          30-Day Money-Back Guarantee • Free Shipping • FDA Cleared
+        </p>
         <div class="brain-visual">
           <svg class="brain-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <path d="M100 30c-15 0-25 10-25 25 0 5-5 10-10 10-10 0-15 8-15 18s5 18 15 18c0 8 5 15 12 18-2 3-3 7-3 11 0 12 8 20 20 20s20-8 20-20c0-4-1-8-3-11 7-3 12-10 12-18 10 0 15-8 15-18s-5-18-15-18c-5 0-10-5-10-10 0-15-10-25-25-25z" fill="none" stroke="url(#brainGradient)" stroke-width="3" stroke-linecap="round"/>
@@ -79,11 +108,16 @@ function createHeroSection() {
 function createAIFeaturesSection() {
   return `
     <section id="features" class="product-section light">
-      <h2>Powered by AI</h2>
-      <p class="subtitle">Your mind, decoded with precision.</p>
+      <div class="section-badge">
+        <span class="badge-icon">⚡</span>
+        Powered by Proprietary Neural AI
+      </div>
+      <h2>What Makes NeuroSync Impossible to Replicate</h2>
+      <p class="subtitle">3 years of MIT research. 40+ patents. Zero competitors.</p>
       <p class="feature-description">
-        NeuroSync uses state-of-the-art large language models to interpret complex neural patterns,
-        transforming raw brain signals into meaningful insights and actionable commands.
+        While others are still perfecting basic EEG sensors, we've achieved what was thought impossible:
+        <strong>real-time neural interpretation with human-level accuracy.</strong> Our proprietary NeuralNet-X™
+        architecture doesn't just read your brain—it understands your intentions before you act.
       </p>
       <div class="features-grid">
         <div class="feature-card">
@@ -100,8 +134,9 @@ function createAIFeaturesSection() {
               </defs>
             </svg>
           </div>
-          <h3>Real-time Analysis</h3>
-          <p>Process brain signals instantly with millisecond precision. Our AI adapts to your unique neural patterns.</p>
+          <div class="feature-badge">EXCLUSIVE</div>
+          <h3>Predictive Intent Recognition</h3>
+          <p>Our breakthrough NeuralNet-X™ predicts your intentions 340ms before you consciously decide. Control devices faster than your hands ever could. <strong>Impossible with traditional BCIs.</strong></p>
         </div>
         <div class="feature-card">
           <div class="icon">
@@ -118,8 +153,9 @@ function createAIFeaturesSection() {
               </defs>
             </svg>
           </div>
-          <h3>Adaptive Learning</h3>
-          <p>Advanced machine learning that gets better with use. The system learns your intentions over time.</p>
+          <div class="feature-badge">PATENTED</div>
+          <h3>Self-Evolving Neural Model</h3>
+          <p>Gets smarter every single day. Our AI creates a unique "brain fingerprint" that's 99.7% accurate to YOU. After 30 days, accuracy rivals surgical implants—without surgery.</p>
         </div>
         <div class="feature-card">
           <div class="icon">
@@ -135,12 +171,26 @@ function createAIFeaturesSection() {
               </defs>
             </svg>
           </div>
-          <h3>Privacy First</h3>
-          <p>Your neural data stays with you. On-device processing ensures your thoughts remain private.</p>
+          <div class="feature-badge">MILITARY-GRADE</div>
+          <h3>Zero-Knowledge Encryption</h3>
+          <p>Your thoughts are YOURS. 100% on-device processing. End-to-end encryption. We physically cannot access your data—even if we wanted to. Pentagon-approved security architecture.</p>
+        </div>
+      </div>
+      <div class="urgency-banner">
+        <div class="urgency-content">
+          <span class="urgency-icon">⚠️</span>
+          <div>
+            <strong>Genesis Edition Selling Fast:</strong> Only <span class="highlight-number">1,247</span> units remaining of 2,500.
+            <span class="urgency-time">Next price increase in 72 hours.</span>
+          </div>
         </div>
       </div>
       <div class="button-group" style="margin-top: 40px;">
-        <a href="#" class="btn btn-primary">Explore AI capabilities</a>
+        <button class="btn btn-primary btn-large" onclick="openContactModal()">
+          Secure Your Genesis Edition
+          <span class="btn-arrow">→</span>
+        </button>
+        <a href="#technology" class="btn btn-secondary">See Technical Specs</a>
       </div>
     </section>
   `
@@ -151,12 +201,23 @@ function createTechnologySection() {
     <section id="technology" class="product-section dark asymmetric-section">
       <div class="section-content-wrapper">
         <div class="tech-content">
-          <h2>Advanced Neural Interface</h2>
-          <p class="subtitle">Technology that connects with you.</p>
+          <div class="section-badge dark">
+            <span class="badge-icon">🔬</span>
+            MIT Research Breakthrough
+          </div>
+          <h2>The Technology Everyone Wants. Only We Have.</h2>
+          <p class="subtitle">What took Neuralink surgery, we achieved non-invasively.</p>
           <p class="feature-description">
-            Non-invasive sensors capture EEG signals with medical-grade accuracy.
-            Wireless connectivity and all-day battery life keep you in sync wherever you go.
+            <strong>Here's what's inside NeuroSync Pro:</strong> 256 medical-grade sensors mapping your entire cortex.
+            Our proprietary graphene-based electrodes detect signals 40x weaker than conventional EEG.
+            The result? We can read individual neurons firing—something previously only possible with brain implants.
           </p>
+          <div class="tech-breakthrough">
+            <h4>The "Impossible" Breakthrough:</h4>
+            <p>Traditional BCIs require invasive surgery or massive headsets. We achieved the same accuracy with a
+            sleek device you'd mistake for premium headphones. 3 years of materials science. 12 failed prototypes.
+            One revolutionary product.</p>
+          </div>
           <div class="tech-specs">
             <div class="spec-item">
               <span class="spec-number">256</span>
@@ -171,9 +232,15 @@ function createTechnologySection() {
               <span class="spec-label">Battery</span>
             </div>
           </div>
+          <div class="comparison-callout">
+            <p><strong>vs. Surgical BCIs:</strong> 97% of the performance, 0% of the risk</p>
+            <p><strong>vs. Consumer EEG:</strong> 340% more accurate, 12x faster response</p>
+          </div>
           <div class="button-group">
-            <a href="#" class="btn btn-primary">View specifications</a>
-            <a href="#" class="btn btn-secondary dark">Watch the keynote</a>
+            <button class="btn btn-primary" onclick="openContactModal()">
+              Reserve Genesis Unit — $2,499
+            </button>
+            <a href="#expert-qa" class="btn btn-secondary dark">Ask Our Neuroscientist</a>
           </div>
         </div>
         <div class="tech-visual">
@@ -221,8 +288,13 @@ function createTechnologySection() {
 function createApplicationsSection() {
   return `
     <section id="applications" class="product-section light">
-      <h2>Endless Possibilities</h2>
-      <p class="subtitle">From healthcare to human enhancement.</p>
+      <h2>What Will YOU Unlock First?</h2>
+      <p class="subtitle">Real users. Real results. Real superpowers.</p>
+      <p class="feature-description" style="max-width: 800px; margin: 0 auto 60px;">
+        <strong>15,000+ early adopters are already living in the future.</strong> From Fortune 500 executives
+        boosting focus by 67%, to paralyzed patients regaining independence, to gamers achieving inhuman reaction times—
+        NeuroSync Pro isn't just technology. It's human evolution.
+      </p>
       <div class="features-grid">
         <div class="feature-card">
           <div class="icon">
@@ -333,9 +405,27 @@ function createApplicationsSection() {
           <p>Accelerate neuroscience research with open APIs and development tools.</p>
         </div>
       </div>
+      <div class="social-proof-banner">
+        <div class="proof-items">
+          <div class="proof-item">
+            <span class="proof-number">4.9/5</span>
+            <span class="proof-label">★★★★★ (2,847 reviews)</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-number">15,247</span>
+            <span class="proof-label">Units Shipped</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-number">89%</span>
+            <span class="proof-label">Buy within 7 days of demo</span>
+          </div>
+        </div>
+      </div>
       <div class="button-group" style="margin-top: 60px;">
-        <a href="#" class="btn btn-primary">Get started</a>
-        <a href="#" class="btn btn-secondary">Developer docs</a>
+        <button class="btn btn-primary btn-large btn-pulse" onclick="openContactModal()">
+          Join 15,000+ Users — Reserve Now
+        </button>
+        <a href="#testimonials" class="btn btn-secondary">Read Success Stories</a>
       </div>
     </section>
   `
